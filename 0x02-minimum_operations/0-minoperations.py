@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 This module contains a function to calculate the fewest number of operations
 needed to result in exactly n H characters in a text file using only 'Copy All'
