@@ -1,33 +1,35 @@
-#!/usr/bin/python3 
-"""
-This module contains a function to calculate the fewest number of operations 
-needed to result in exactly n H characters in a text file using only 'Copy All' 
-and 'Paste' operations.
-"""
+#!/usr/bin/python3
+'''The minimum operations coding challenge.
+'''
 
 
-def min_operations(n):
-    """
-    Calculate the fewest number of operations needed to result in exactly n H 
-    characters in the file.
-
-    Args:
-    n (int): The target number of H characters.
-
-    Returns:
-    int: The minimum number of operations required.
-    """
-    if n <= 1:
+def minOperations(n):
+    '''Computes the fewest number of operations needed to result
+    in exactly n H characters.
+    '''
+    if not isinstance(n, int):
         return 0
-    
-    # This function finds the minimum number of operations using the prime factorization method.
-    operations = 0
-    factor = 2
-
-    while n > 1:
-        while n % factor == 0:
-            operations += factor
-            n //= factor
-        factor += 1
-    
-    return operations
+    ops_count = 0
+    clipboard = 0
+    done = 1
+    # print('H', end='')
+    while done < n:
+        if clipboard == 0:
+            # init (the first copy all and paste)
+            clipboard = done
+            done += clipboard
+            ops_count += 2
+            # print('-(11)->{}'.format('H' * done), end='')
+        elif n - done > 0 and (n - done) % done == 0:
+            # copy all and paste
+            clipboard = done
+            done += clipboard
+            ops_count += 2
+            # print('-(11)->{}'.format('H' * done), end='')
+        elif clipboard > 0:
+            # paste
+            done += clipboard
+            ops_count += 1
+            # print('-(01)->{}'.format('H' * done), end='')
+    # print('')
+    return ops_count
