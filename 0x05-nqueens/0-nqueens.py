@@ -34,7 +34,8 @@ def is_attacking(pos1, pos2):
     Returns:
         bool: True if the queens are attacking each other, False otherwise.
     """
-    return pos1[0] == pos2[0] or pos1[1] == pos2[1] or abs(pos1[0] - pos2[0]) == abs(pos1[1] - pos2[1])
+    return pos1[0] == pos2[0] or pos1[1] == pos2[1] or\
+        abs(pos1[0] - pos2[0]) == abs(pos1[1] - pos2[1])
 
 
 def build_solutions(n, row, queens, solutions):
