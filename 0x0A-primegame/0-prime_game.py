@@ -2,6 +2,7 @@
 
 """ Prime Game Algorithm Python """
 
+
 def is_prime(n):
     """Checks if a given number n is a prime number."""
     if n < 2:
@@ -35,7 +36,7 @@ def isWinner(x, nums):
     If the result is a tie, return None.
     """
     players_wins = {"Maria": 0, "Ben": 0}
-    primes = [0, 0, 2]  # Initialize prime numbers list (index 0 and 1 are not primes)
+    primes = [0, 0, 2]  # Initialize prime numbers list.
 
     # Precompute primes up to the maximum number in nums
     calculate_primes(max(nums), primes)
